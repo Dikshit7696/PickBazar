@@ -1,0 +1,402 @@
+    import React, { useRef, useState, useEffect } from 'react';
+    import { Swiper, SwiperSlide } from 'swiper/react';
+    import 'swiper/css';
+    import 'swiper/css/navigation';
+    // import './styles.css';
+    import { Navigation } from 'swiper/modules';
+    import { FaSearch } from "react-icons/fa";
+    // import { FaAngleDown } from "react-icons/fa";
+    import { GiShinyApple } from "react-icons/gi";
+    import { TbMeat } from "react-icons/tb";
+    import { GiCoffeeCup } from "react-icons/gi";
+    import { GiDogBowl } from "react-icons/gi";
+    import { TfiSpray } from "react-icons/tfi";
+    import { LuMilk } from "react-icons/lu";
+    import { PiCookingPotFill } from "react-icons/pi";
+    import { PiBowlFoodFill } from "react-icons/pi";
+    import { FaGlassCheers } from "react-icons/fa";
+    import { GiHealthCapsule } from "react-icons/gi";
+    import { MdOutlineShoppingBasket } from "react-icons/md";
+    import { Link } from 'react-router-dom';
+
+
+    function Beverage() {
+        const [searchQuery, setSearchQuery] = useState('');
+        const [activeDropdown, setActiveDropdown] = useState('beverage');
+
+        const handleSearchChange = (e) => {
+            setSearchQuery(e.target.value);
+        };
+
+        const handleSearch = () => {
+            console.log(`Searching for: ${searchQuery}`);
+        };
+
+        const toggleDropdown = (category) => {
+            setActiveDropdown((prev) => (prev === category ? null : category));
+        };
+
+        return (
+            <div>
+                <div className="flex flex-col items-center text-center pt-8 relative">
+                    <div className="h-full w-full absolute z-0 top-0 left-0">
+                        <img src="https://pickbazar-react.vercel.app/_next/image?url=https%3A%2F%2Fpickbazarlaravel.s3.ap-southeast-1.amazonaws.com%2F904%2Fgrocery.png&w=3840&q=75" alt="" /></div>
+                    <div className='relative z-20'>
+                        <h1 className="font-sans font-bold text-5xl mt-64">Groceries Delivered in 90 Minutes</h1>
+                        <p className="font-sans text-lg mt-8">Get your healthy foods & snacks delivered at your doorsteps all day, every day.</p>
+                        <div className="flex items-center w-auto mt-8 drop-shadow-xl">
+                            <input type="text" placeholder="   Search your products from here" value={searchQuery} onChange={handleSearchChange} className="w-[700px] h-14 p-3  rounded-l-md focus:outline-none focus:ring-1 focus:ring-green-500" />
+                            <button onClick={handleSearch} className="w-32 h-14 px-4 py-3 text-white font-sans font-semibold bg-green-500 rounded-r-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500"><FaSearch className='inline mr-2 font-bold' />Search</button>
+                        </div>
+                    </div>
+                    <div className="w-full h-auto px-7 mt-[380px] bg-white py-10">
+                        <Swiper slidesPerView={3} spaceBetween={0} navigation={true} modules={[Navigation]} className="mySwiper">
+                            <SwiperSlide><img src="https://pickbazar-react.vercel.app/_next/image?url=https%3A%2F%2Fpickbazarlaravel.s3.ap-southeast-1.amazonaws.com%2F902%2Foffer-5.png&w=640&q=75" className='w-[475px] h-[230px]' alt="" /></SwiperSlide>
+                            <SwiperSlide><img src="https://pickbazar-react.vercel.app/_next/image?url=https%3A%2F%2Fpickbazarlaravel.s3.ap-southeast-1.amazonaws.com%2F903%2Foffer-4.png&w=640&q=75" className='w-[475px] h-[230px]' alt="" /></SwiperSlide>
+                            <SwiperSlide><img src="https://pickbazar-react.vercel.app/_next/image?url=https%3A%2F%2Fpickbazarlaravel.s3.ap-southeast-1.amazonaws.com%2F904%2Foffer-3.png&w=640&q=75" className='w-[475px] h-[230px]' alt="" /></SwiperSlide>
+                            <SwiperSlide><img src="https://pickbazar-react.vercel.app/_next/image?url=https%3A%2F%2Fpickbazarlaravel.s3.ap-southeast-1.amazonaws.com%2F905%2Foffer-2.png&w=640&q=75" className='w-[475px] h-[230px]' alt="" /></SwiperSlide>
+                            <SwiperSlide><img src="https://pickbazar-react.vercel.app/_next/image?url=https%3A%2F%2Fpickbazarlaravel.s3.ap-southeast-1.amazonaws.com%2F906%2Foffer-1.png&w=640&q=75" className='w-[475px] h-[230px]' alt="" /></SwiperSlide>
+                        </Swiper>
+                    </div>
+                    <div className="w-full bg-gray-100  flex">
+                        <div className="col-span-1 w-60 h-auto pb-4 bg-white shadow-md pt-10 mt-0.5">
+                            <ul className="space-y-6 sticky top-32 left-0">
+                                <li className="flex items-center cursor-pointer hover:text-green-500" onClick={() => toggleDropdown('fruits')}><GiShinyApple className="mr-3 ml-6 w-5 h-5" /><Link className='nav-link' to='/fruitsvegetables'>Fruits & Vegetables</Link></li>
+                                {activeDropdown === 'fruits' && (
+                                    <ul className="space-y-4 mr-10 mt-1">
+                                        <li className="hover:text-green-500 cursor-pointer mr-8"><Link className='nav-link' to='/fruits'>Fruits</Link></li>
+                                        <li className="hover:text-green-500 cursor-pointer"><Link className='nav-link' to='/vegetables'>Vegetables</Link></li>
+                                    </ul>
+                                )}
+                                <li className="flex items-center cursor-pointer hover:text-green-500" onClick={() => toggleDropdown('meat')}><TbMeat className="mr-3 ml-6 w-5 h-5" /><Link className='nav-link' to='/meat&fish'> Meat & Fish</Link></li>
+                                {activeDropdown === 'meat' && (
+                                    <ul className="space-y-4 mr-10 mt-1">
+                                        <li className="hover:text-green-500 cursor-pointer mr-2"><Link className='nav-link' to='/fish'>Fresh Fish</Link></li>
+                                        <li className="hover:text-green-500 cursor-pointer mr-10"><Link className='nav-link' to='/meat'>Meat</Link></li>
+                                    </ul>
+                                )}
+                                <li className="flex items-center cursor-pointer hover:text-green-500" onClick={() => toggleDropdown('snacks')}><GiCoffeeCup className="mr-3 ml-6 w-5 h-5" /><Link className='nav-link' to='/snacks'> Snacks</Link></li>
+                                {activeDropdown === 'snacks' && (
+                                    <ul className="space-y-4 mr-10 mt-1">
+                                        <li className="hover:text-green-500 cursor-pointer ml-8"><Link className='nav-link' to='/nuts&biscuits'>Nuts & Biscuits</Link></li>
+                                        <li className="hover:text-green-500 cursor-pointer mr-2"><Link className='nav-link' to='/chocolates'>Chocolates</Link></li>
+                                        <li className="hover:text-green-500 cursor-pointer mr-8"><Link className='nav-link' to='/crisps'>Crisps</Link></li>
+                                        <li className="hover:text-green-500 cursor-pointer ml-10"><Link className='nav-link' to='/noodles&pasta'>Noodles & Pasta</Link></li>
+                                        <li className="hover:text-green-500 cursor-pointer mr-8"><Link className='nav-link' to='/sauce'>Sauce</Link></li>
+                                    </ul>
+                                )}
+                                <li className="flex items-center cursor-pointer hover:text-green-500" onClick={() => toggleDropdown('pet')}><GiDogBowl className="mr-3 ml-6 w-5 h-5" /><Link className='nav-link' to='/petcare'>Pet Care</Link></li>
+                                {activeDropdown === 'pet' && (
+                                    <ul className="space-y-4 mr-10 mt-1">
+                                        <li className="hover:text-green-500 cursor-pointer mr-3"><Link className='nav-link' to='/catfood'>Cat Food</Link></li>
+                                        <li className="hover:text-green-500 cursor-pointer mr-1"><Link className='nav-link' to='/dogfood'>Dog Food</Link></li>
+                                        <li className="hover:text-green-500 cursor-pointer ml-2"><Link className='nav-link' to='/accessories'>Accessories</Link></li>
+                                    </ul>
+                                )}
+                                <li className="flex items-center cursor-pointer hover:text-green-500" onClick={() => toggleDropdown('home')}><TfiSpray className="mr-3 ml-6 w-5 h-5" /><Link className='nav-link' to='/home&cleaning'>Home & Cleaning</Link></li>
+                                {activeDropdown === 'home' && (
+                                    <ul className="space-y-4 mr-10 mt-1">
+                                        <li className="hover:text-green-500 cursor-pointer ml-3"><Link className='nav-link' to='/airfreshner'>Air Freshner</Link></li>
+                                        <li className="hover:text-green-500 cursor-pointer ml-[53px]"><Link className='nav-link' to='/cleaning'>Cleaning Products</Link></li>
+                                        <li className="hover:text-green-500 cursor-pointer ml-[60px]"><Link className='nav-link' to='/kitchen'>Kitchen Accessories</Link></li>
+                                        <li className="hover:text-green-500 cursor-pointer mr-5"><Link className='nav-link' to='/laundary'>Laundry</Link></li>
+                                    </ul>
+                                )}
+                                <li className="flex items-center cursor-pointer hover:text-green-500" onClick={() => toggleDropdown('dairy')}><LuMilk className="mr-3 ml-6 w-5 h-5" /><Link className='nav-link' to='/dairy'> Dairy</Link></li>
+                                {activeDropdown === 'dairy' && (
+                                    <ul className="space-y-4 mr-10 mt-1">
+                                        <li className="hover:text-green-500 cursor-pointer mr-10"><Link className='nav-link' to='/milk'>Milk</Link></li>
+                                        <li className="hover:text-green-500 cursor-pointer mr-7"><Link className='nav-link' to='/butter'>Butter</Link></li>
+                                        <li className="hover:text-green-500 cursor-pointer mr-10"><Link className='nav-link' to='/egg'>Egg</Link></li>
+                                        <li className="hover:text-green-500 cursor-pointer mr-5"><Link className='nav-link' to='/yogurt'>Yogurt</Link></li>
+                                    </ul>
+                                )}
+                                <li className="flex items-center cursor-pointer hover:text-green-500" onClick={() => toggleDropdown('cooking')}><PiCookingPotFill className="mr-3 ml-6 w-5 h-5" /><Link className='nav-link' to='/cooking'> Cooking</Link></li>
+                                {activeDropdown === 'cooking' && (
+                                    <ul className="space-y-4 mr-10 mt-1">
+                                        <li className="hover:text-green-500 cursor-pointer mr-12"><Link className='nav-link' to='/oil'>Oil</Link></li>
+                                        <li className="hover:text-green-500 cursor-pointer mr-10"><Link className='nav-link' to='/rice'>Rice</Link></li>
+                                        <li className="hover:text-green-500 cursor-pointer ml-4"><Link className='nav-link' to='/slat&sugar'>Salt & Sugar</Link></li>
+                                        <li className="hover:text-green-500 cursor-pointer mr-6"><Link className='nav-link' to='/spices'>Spices</Link></li>
+                                    </ul>
+                                )}
+                                <li className="flex items-center cursor-pointer hover:text-green-500" onClick={() => toggleDropdown('breakfast')}><PiBowlFoodFill className="mr-3 ml-6 w-5 h-5" /><Link className='nav-link' to='/breakfast'> Breakfast</Link></li>
+                                {activeDropdown === 'breakfast' && (
+                                    <ul className="space-y-4 mr-10 mt-1">
+                                        <li className="hover:text-green-500 cursor-pointer mr-7"><Link className='nav-link' to='/bread'>Bread</Link></li>
+                                        <li className="hover:text-green-500 cursor-pointer mr-6"><Link className='nav-link' to='/cereal'>Cereal</Link></li>
+                                        <li className="hover:text-green-500 cursor-pointer mr-9"><Link className='nav-link' to='/jam'>Jam</Link></li>
+                                    </ul>
+                                )}
+                                <li className="flex items-center cursor-pointer hover:text-green-500" onClick={() => toggleDropdown('beverage')}><FaGlassCheers className="mr-3 ml-6 w-5 h-5" /><Link className='nav-link' to='/beverage'> Beverage</Link></li>
+                                {activeDropdown === 'beverage' && (
+                                    <ul className="space-y-4 mr-10 mt-1">
+                                        <li className="hover:text-green-500 cursor-pointer mr-5"><Link className='nav-link' to='/coffee'>Coffee</Link></li>
+                                        <li className="hover:text-green-500 cursor-pointer ml-8"><Link className='nav-link' to='/energy'>Energy Drinks</Link></li>
+                                        <li className="hover:text-green-500 cursor-pointer mr-7"><Link className='nav-link' to='/juice'>Juice</Link></li>
+                                        <li className="hover:text-green-500 cursor-pointer ml-5"><Link className='nav-link' to='/fizzy'>Fizzy Drinks</Link></li>
+                                        <li className="hover:text-green-500 cursor-pointer mr-9"><Link className='nav-link' to='/tea'>Tea</Link></li>
+                                    </ul>
+                                )}
+                                <li className="flex items-center cursor-pointer hover:text-green-500" onClick={() => toggleDropdown('health')}><GiHealthCapsule className="mr-3 ml-6 w-5 h-5" /><Link className='nav-link' to='/health&beauty'> Health & Beauty</Link></li>
+                                {activeDropdown === 'health' && (
+                                    <ul className="space-y-4 mr-10 mt-1">
+                                        <li className="hover:text-green-500 cursor-pointer mr-7"><Link className='nav-link' to='/bath'>Bath</Link></li>
+                                        <li className="hover:text-green-500 cursor-pointer mr-4"><Link className='nav-link' to='/cream'>Cream</Link></li>
+                                        <li className="hover:text-green-500 cursor-pointer ml-4"><Link className='nav-link' to='/deodorant'>Deodorant</Link></li>
+                                        <li className="hover:text-green-500 cursor-pointer ml-2"><Link className='nav-link' to='/face'>Face Care</Link></li>
+                                        <li className="hover:text-green-500 cursor-pointer ml-1"><Link className='nav-link' to='/oral'>Oral Care</Link></li>
+                                        <li className="hover:text-green-500 cursor-pointer ml-11"><Link className='nav-link' to='/shaving'>Shaving Needs</Link></li>
+                                    </ul>
+                                )}
+                            </ul>
+                        </div>
+                        <div className='mt-6 mx-10'>
+                            <div className='grid grid-cols-4 gap-4'>
+                                <div className='h-[400px] w-72 bg-white border rounded-md'>
+                                    <img src="https://pickbazar-react.vercel.app/_next/image?url=https%3A%2F%2Fpickbazarlaravel.s3.ap-southeast-1.amazonaws.com%2F369%2Fjavarama_classic.jpg&w=1920&q=75" className='w-60 h-60 justify-self-center' alt="" />
+                                    <div className='text-start ml-5'>
+                                        <h1 className='font-semibold'>Javarama Cafe Coffee</h1>
+                                        <p className='font-thin text-sm mt-2'>2lb</p>
+                                        <p className='font-thin text-sm mt-6 italic line-through'>$4.00</p>
+                                        <div className='flex'>
+                                            <p className='font-semibold text-green-500 mt-2'>$3.00</p>
+                                            <button className='ml-28 font-semibold rounded-3xl border border-green-500 w-24 h-9 text-green-500 hover:bg-green-700 hover:text-white'><MdOutlineShoppingBasket className='inline mr-3 h-4 w-4' />Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='h-[400px] w-72 bg-white border rounded-md'>
+                                    <img src="https://pickbazar-react.vercel.app/_next/image?url=https%3A%2F%2Fpickbazarlaravel.s3.ap-southeast-1.amazonaws.com%2F370%2Fstarbucks_house_blend.jpg&w=1920&q=75" className='w-60 h-60 justify-self-center' alt="" />
+                                    <div className='text-start ml-5'>
+                                        <h1 className='font-semibold'>Starbucks House Blend</h1>
+                                        <p className='font-thin text-sm mt-2'>2lb</p>
+                                        <div className='flex'>
+                                            <p className='font-semibold text-green-500 mt-12'>$4.00</p>
+                                            <button className='ml-28 mt-11 font-semibold rounded-3xl border border-green-500 w-24 h-9 text-green-500 hover:bg-green-700 hover:text-white'><MdOutlineShoppingBasket className='inline mr-3 h-4 w-4' />Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='h-[400px] w-72 bg-white border rounded-md'>
+                                    <img src="https://pickbazar-react.vercel.app/_next/image?url=https%3A%2F%2Fpickbazarlaravel.s3.ap-southeast-1.amazonaws.com%2F371%2Fstarbucks_vanilla_latte.jpg&w=1920&q=75" className='w-60 h-60 justify-self-center' alt="" />
+                                    <div className='text-start ml-5'>
+                                        <h1 className='font-semibold'>Starbucks Vanilla Latte</h1>
+                                        <p className='font-thin text-sm mt-2'>2lb</p>
+                                        <div className='flex'>
+                                            <p className='font-semibold text-green-500 mt-12'>$4.00</p>
+                                            <button className='ml-28 mt-11 font-semibold rounded-3xl border border-green-500 w-24 h-9 text-green-500 hover:bg-green-700 hover:text-white'><MdOutlineShoppingBasket className='inline mr-3 h-4 w-4' />Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='h-[400px] w-72 bg-white border rounded-md'>
+                                    <img src="https://pickbazar-react.vercel.app/_next/image?url=https%3A%2F%2Fpickbazarlaravel.s3.ap-southeast-1.amazonaws.com%2F372%2Fteeccino_herbal_coffee_alternative_almond_amaretto.jpg&w=1920&q=75" className='w-60 h-60 justify-self-center' alt="" />
+                                    <div className='text-start ml-5'>
+                                        <h1 className='font-semibold'>Teeccino Herbal Coffee Alternative</h1>
+                                        <p className='font-thin text-sm mt-2'>1lb</p>
+                                        <div className='flex'>
+                                            <p className='font-semibold text-green-500 mt-12'>$5.00</p>
+                                            <button className='ml-28 mt-11 font-semibold rounded-3xl border border-green-500 w-24 h-9 text-green-500 hover:bg-green-700 hover:text-white'><MdOutlineShoppingBasket className='inline mr-3 h-4 w-4' />Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='h-[400px] w-72 bg-white border rounded-md'>
+                                    <img src="https://pickbazar-react.vercel.app/_next/image?url=https%3A%2F%2Fpickbazarlaravel.s3.ap-southeast-1.amazonaws.com%2F373%2Fdragon.jpg&w=1920&q=75" className='w-60 h-60 justify-self-center object-contain' alt="" />
+                                    <div className='text-start ml-5'>
+                                        <h1 className='font-semibold'>Dragon Energy</h1>
+                                        <p className='font-thin text-sm mt-2'>250ml</p>
+                                        <div className='flex'>
+                                            <p className='font-semibold text-green-500 mt-12'>$2.00</p>
+                                            <button className='ml-28 mt-11 font-semibold rounded-3xl border border-green-500 w-24 h-9 text-green-500 hover:bg-green-700 hover:text-white'><MdOutlineShoppingBasket className='inline mr-3 h-4 w-4' />Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='h-[400px] w-72 bg-white border rounded-md'>
+                                    <img src="https://pickbazar-react.vercel.app/_next/image?url=https%3A%2F%2Fpickbazarlaravel.s3.ap-southeast-1.amazonaws.com%2F377%2Ficeland_tropical_juice_drink.jpg&w=1920&q=75" className='w-60 h-60 justify-self-center' alt="" />
+                                    <div className='text-start ml-5'>
+                                        <h1 className='font-semibold'>Iceland Tropical Juice Drink</h1>
+                                        <p className='font-thin text-sm mt-2'>1ltr</p>
+                                        <div className='flex'>
+                                            <p className='font-semibold text-green-500 mt-12'>$2.50</p>
+                                            <button className='ml-28 mt-11 font-semibold rounded-3xl border border-green-500 w-24 h-9 text-green-500 hover:bg-green-700 hover:text-white'><MdOutlineShoppingBasket className='inline mr-3 h-4 w-4' />Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='h-[400px] w-72 bg-white border rounded-md'>
+                                    <img src="https://pickbazar-react.vercel.app/_next/image?url=https%3A%2F%2Fpickbazarlaravel.s3.ap-southeast-1.amazonaws.com%2F378%2Fminute_maid_orange.jpg&w=1920&q=75" className='w-60 h-60 justify-self-center' alt="" />
+                                    <div className='text-start ml-5'>
+                                        <h1 className='font-semibold'>Minute Maid Orange</h1>
+                                        <p className='font-thin text-sm mt-2'>500ml</p>
+                                        <p className='font-thin text-sm mt-6 italic line-through'>$3.00</p>
+                                        <div className='flex'>
+                                            <p className='font-semibold text-green-500 mt-2'>$2.22</p>
+                                            <button className='ml-28 font-semibold rounded-3xl border border-green-500 w-24 h-9 text-green-500 hover:bg-green-700 hover:text-white'><MdOutlineShoppingBasket className='inline mr-3 h-4 w-4' />Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='h-[400px] w-72 bg-white border rounded-md'>
+                                    <img src="https://pickbazar-react.vercel.app/_next/image?url=https%3A%2F%2Fpickbazarlaravel.s3.ap-southeast-1.amazonaws.com%2F379%2Fnongmo_simply_apple.jpg&w=1920&q=75" className='w-60 h-60 justify-self-center' alt="" />
+                                    <div className='text-start ml-5'>
+                                        <h1 className='font-semibold'>Nongmo Simple Apple</h1>
+                                        <p className='font-thin text-sm mt-2'>1ltr</p>
+                                        <div className='flex'>
+                                            <p className='font-semibold text-green-500 mt-12'>$3.00</p>
+                                            <button className='ml-28 mt-11 font-semibold rounded-3xl border border-green-500 w-24 h-9 text-green-500 hover:bg-green-700 hover:text-white'><MdOutlineShoppingBasket className='inline mr-3 h-4 w-4' />Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='h-[400px] w-72 bg-white border rounded-md'>
+                                    <img src="https://pickbazar-react.vercel.app/_next/image?url=https%3A%2F%2Fpickbazarlaravel.s3.ap-southeast-1.amazonaws.com%2F380%2Ftropicana_orange_no_pulp.jpg&w=1920&q=75" className='w-60 h-60 justify-self-center' alt="" />
+                                    <div className='text-start ml-5'>
+                                        <h1 className='font-semibold'>Tropicana Orange</h1>
+                                        <p className='font-thin text-sm mt-2'>1ltr</p>
+                                        <div className='flex'>
+                                            <p className='font-semibold text-green-500 mt-12'>$1.00</p>
+                                            <button className='ml-28 mt-11 font-semibold rounded-3xl border border-green-500 w-24 h-9 text-green-500 hover:bg-green-700 hover:text-white'><MdOutlineShoppingBasket className='inline mr-3 h-4 w-4' />Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='h-[400px] w-72 bg-white border rounded-md'>
+                                    <img src="https://pickbazar-react.vercel.app/_next/image?url=https%3A%2F%2Fpickbazarlaravel.s3.ap-southeast-1.amazonaws.com%2F381%2Ftropicana_apple.jpg&w=1920&q=75" className='w-60 h-60 justify-self-center' alt="" />
+                                    <div className='text-start ml-5'>
+                                        <h1 className='font-semibold'>Tropicana Apple</h1>
+                                        <p className='font-thin text-sm mt-2'>1Wurf</p>
+                                        <div className='flex'>
+                                            <p className='font-semibold text-green-500 mt-12'>$2.50</p>
+                                            <button className='ml-28 mt-11 font-semibold rounded-3xl border border-green-500 w-24 h-9 text-green-500 hover:bg-green-700 hover:text-white'><MdOutlineShoppingBasket className='inline mr-3 h-4 w-4' />Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='h-[400px] w-72 bg-white border rounded-md'>
+                                    <img src="https://pickbazar-react.vercel.app/_next/image?url=https%3A%2F%2Fpickbazarlaravel.s3.ap-southeast-1.amazonaws.com%2F382%2F7up_lemon_lime_355ml.jpg&w=1920&q=75" className='w-60 h-60 justify-self-center object-contain' alt="" />
+                                    <div className='text-start ml-5'>
+                                        <h1 className='font-semibold'>7 Up Can</h1>
+                                        <p className='font-thin text-sm mt-2'>250ml</p>
+                                        <div className='flex'>
+                                            <p className='font-semibold text-green-500 mt-12'>$1.00</p>
+                                            <button className='ml-28 mt-11 font-semibold rounded-3xl border border-green-500 w-24 h-9 text-green-500 hover:bg-green-700 hover:text-white'><MdOutlineShoppingBasket className='inline mr-3 h-4 w-4' />Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='h-[400px] w-72 bg-white border rounded-md'>
+                                    <img src="https://pickbazar-react.vercel.app/_next/image?url=https%3A%2F%2Fpickbazarlaravel.s3.ap-southeast-1.amazonaws.com%2F383%2Fcoke_diet_355ml.jpg&w=1920&q=75" className='w-60 h-60 justify-self-center' alt="" />
+                                    <div className='text-start ml-5'>
+                                        <h1 className='font-semibold'>Diet Coke</h1>
+                                        <p className='font-thin text-sm mt-2'>330ml</p>
+                                        <div className='flex'>
+                                            <p className='font-semibold text-green-500 mt-12'>$1.00</p>
+                                            <button className='ml-28 mt-11 font-semibold rounded-3xl border border-green-500 w-24 h-9 text-green-500 hover:bg-green-700 hover:text-white'><MdOutlineShoppingBasket className='inline mr-3 h-4 w-4' />Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='h-[400px] w-72 bg-white border rounded-md'>
+                                    <img src="https://pickbazar-react.vercel.app/_next/image?url=https%3A%2F%2Fpickbazarlaravel.s3.ap-southeast-1.amazonaws.com%2F384%2Fdr_pepper_diet.jpg&w=1920&q=75" className='w-60 h-60 justify-self-center' alt="" />
+                                    <div className='text-start ml-5'>
+                                        <h1 className='font-semibold'>De Pepper Diet</h1>
+                                        <p className='font-thin text-sm mt-2'>330ml</p>
+                                        <p className='font-thin text-sm mt-6 italic line-through'>$1.40</p>
+                                        <div className='flex'>
+                                            <p className='font-semibold text-green-500 mt-2'>$1.00</p>
+                                            <button className='ml-28 font-semibold rounded-3xl border border-green-500 w-24 h-9 text-green-500 hover:bg-green-700 hover:text-white'><MdOutlineShoppingBasket className='inline mr-3 h-4 w-4' />Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='h-[400px] w-72 bg-white border rounded-md'>
+                                    <img src="https://pickbazar-react.vercel.app/_next/image?url=https%3A%2F%2Fpickbazarlaravel.s3.ap-southeast-1.amazonaws.com%2F385%2FFanta_orange_can_250ml.jpg&w=1920&q=75" className='w-60 h-60 justify-self-center' alt="" />
+                                    <div className='text-start ml-5'>
+                                        <h1 className='font-semibold'>Fanta</h1>
+                                        <p className='font-thin text-sm mt-2'>500ml</p>
+                                        <div className='flex'>
+                                            <p className='font-semibold text-green-500 mt-12'>$1.00</p>
+                                            <button className='ml-28 mt-11 font-semibold rounded-3xl border border-green-500 w-24 h-9 text-green-500 hover:bg-green-700 hover:text-white'><MdOutlineShoppingBasket className='inline mr-3 h-4 w-4' />Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='h-[400px] w-72 bg-white border rounded-md'>
+                                    <img src="https://pickbazar-react.vercel.app/_next/image?url=https%3A%2F%2Fpickbazarlaravel.s3.ap-southeast-1.amazonaws.com%2F386%2Fmountain_dew_diet.jpg&w=1920&q=75" className='w-60 h-60 justify-self-center' alt="" />
+                                    <div className='text-start ml-5'>
+                                        <h1 className='font-semibold'>Diet Mountain Dew</h1>
+                                        <p className='font-thin text-sm mt-2'>330ml</p>
+                                        <div className='flex'>
+                                            <p className='font-semibold text-green-500 mt-12'>$1.75</p>
+                                            <button className='ml-28 mt-11 font-semibold rounded-3xl border border-green-500 w-24 h-9 text-green-500 hover:bg-green-700 hover:text-white'><MdOutlineShoppingBasket className='inline mr-3 h-4 w-4' />Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='h-[400px] w-72 bg-white border rounded-md'>
+                                    <img src="https://pickbazar-react.vercel.app/_next/image?url=https%3A%2F%2Fpickbazarlaravel.s3.ap-southeast-1.amazonaws.com%2F387%2Fcoca_cola_zero.jpg&w=1920&q=75" className='w-60 h-60 justify-self-center' alt="" />
+                                    <div className='text-start ml-5'>
+                                        <h1 className='font-semibold'>Coca Cola Zero</h1>
+                                        <p className='font-thin text-sm mt-2'>330ml</p>
+                                        <div className='flex'>
+                                            <p className='font-semibold text-green-500 mt-12'>$1.00</p>
+                                            <button className='ml-28 mt-11 font-semibold rounded-3xl border border-green-500 w-24 h-9 text-green-500 hover:bg-green-700 hover:text-white'><MdOutlineShoppingBasket className='inline mr-3 h-4 w-4' />Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='h-[400px] w-72 bg-white border rounded-md'>
+                                    <img src="https://pickbazar-react.vercel.app/_next/image?url=https%3A%2F%2Fpickbazarlaravel.s3.ap-southeast-1.amazonaws.com%2F388%2Fava_juice_Detox_Matcha.jpg&w=1920&q=75" className='w-60 h-60 justify-self-center' alt="" />
+                                    <div className='text-start ml-5'>
+                                        <h1 className='font-semibold'>Ava Juice Macha Tea</h1>
+                                        <p className='font-thin text-sm mt-2'>0.5lb</p>
+                                        <p className='font-thin text-sm mt-6 italic line-through'>$5.00</p>
+                                        <div className='flex'>
+                                            <p className='font-semibold text-green-500 mt-2'>$3.50</p>
+                                            <button className='ml-28 font-semibold rounded-3xl border border-green-500 w-24 h-9 text-green-500 hover:bg-green-700 hover:text-white'><MdOutlineShoppingBasket className='inline mr-3 h-4 w-4' />Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='h-[400px] w-72 bg-white border rounded-md'>
+                                    <img src="https://pickbazar-react.vercel.app/_next/image?url=https%3A%2F%2Fpickbazarlaravel.s3.ap-southeast-1.amazonaws.com%2F389%2Fimperial_tea_longjing_tea.jpg&w=1920&q=75" className='w-60 h-60 justify-self-center' alt="" />
+                                    <div className='text-start ml-5'>
+                                        <h1 className='font-semibold'>Imperial Long Jing Tea</h1>
+                                        <p className='font-thin text-sm mt-2'>0.5lb</p>
+                                        <div className='flex'>
+                                            <p className='font-semibold text-green-500 mt-12'>$4.59</p>
+                                            <button className='ml-28 mt-11 font-semibold rounded-3xl border border-green-500 w-24 h-9 text-green-500 hover:bg-green-700 hover:text-white'><MdOutlineShoppingBasket className='inline mr-3 h-4 w-4' />Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='h-[400px] w-72 bg-white border rounded-md'>
+                                    <img src="https://pickbazar-react.vercel.app/_next/image?url=https%3A%2F%2Fpickbazarlaravel.s3.ap-southeast-1.amazonaws.com%2F390%2Fcrystal_light_lemon_iced_tea.jpg&w=1920&q=75" className='w-60 h-60 justify-self-center' alt="" />
+                                    <div className='text-start ml-5'>
+                                        <h1 className='font-semibold'>Crystal Light Lemon Iced Tea</h1>
+                                        <p className='font-thin text-sm mt-2'>0.5lb</p>
+                                        <p className='font-thin text-sm mt-6 italic line-through'>$5.00</p>
+                                        <div className='flex'>
+                                            <p className='font-semibold text-green-500 mt-2'>$3.50</p>
+                                            <button className='ml-28 font-semibold rounded-3xl border border-green-500 w-24 h-9 text-green-500 hover:bg-green-700 hover:text-white'><MdOutlineShoppingBasket className='inline mr-3 h-4 w-4' />Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='h-[400px] w-72 bg-white border rounded-md'>
+                                    <img src="https://pickbazar-react.vercel.app/_next/image?url=https%3A%2F%2Fpickbazarlaravel.s3.ap-southeast-1.amazonaws.com%2F391%2Fboh_3in1_instant_tea_mix.jpg&w=1920&q=75" className='w-60 h-60 justify-self-center' alt="" />
+                                    <div className='text-start ml-5'>
+                                        <h1 className='font-semibold'>Boh Instant Tea Mix</h1>
+                                        <p className='font-thin text-sm mt-2'>0.5lb</p>
+                                        <p className='font-thin text-sm mt-6 italic line-through'>$5.00</p>
+                                        <div className='flex'>
+                                            <p className='font-semibold text-green-500 mt-2'>$4.00</p>
+                                            <button className='ml-28 font-semibold rounded-3xl border border-green-500 w-24 h-9 text-green-500 hover:bg-green-700 hover:text-white'><MdOutlineShoppingBasket className='inline mr-3 h-4 w-4' />Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='h-[400px] w-72 bg-white border rounded-md mb-10'>
+                                    <img src="https://pickbazar-react.vercel.app/_next/image?url=https%3A%2F%2Fpickbazarlaravel.s3.ap-southeast-1.amazonaws.com%2F392%2Fluzianne_iced_tea.jpg&w=1920&q=75" className='w-60 h-60 justify-self-center' alt="" />
+                                    <div className='text-start ml-5'>
+                                        <h1 className='font-semibold'>Luzianne Iced Tea</h1>
+                                        <p className='font-thin text-sm mt-2'>0.5lb</p>
+                                        <div className='flex'>
+                                            <p className='font-semibold text-green-500 mt-12'>$5.00</p>
+                                            <button className='ml-28 mt-11 font-semibold rounded-3xl border border-green-500 w-24 h-9 text-green-500 hover:bg-green-700 hover:text-white'><MdOutlineShoppingBasket className='inline mr-3 h-4 w-4' />Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
+    export default Beverage;
+

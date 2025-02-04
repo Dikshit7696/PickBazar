@@ -20,6 +20,7 @@ const userSchema = new mongoose.Schema({
     image:{type:String},
    
     otp:{type:Number},
+    token:{type:String}
 
 },{
     timestamps:true,

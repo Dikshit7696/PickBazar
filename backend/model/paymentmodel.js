@@ -1,10 +1,10 @@
 import mongoose from "mongoose"
 const paymentSchema = new mongoose.Schema({
-    user:{
+    userId:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"user",
     },
-    order:{
+    orderId:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"order",
     },

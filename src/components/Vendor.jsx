@@ -18,6 +18,7 @@ function Vendor() {
                 <img src="https://pickbazar-react.vercel.app/_next/static/media/no-result.b574bcc9.svg" alt="" />
                 <h1 className='text-xl text-center font-sans font-semibold my-10 text-blue-800'>Sorry, No FAQs Found :(</h1>
             </div>
+            <div></div>
             <Footer/>
         </div>
     )

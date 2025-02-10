@@ -79,8 +79,8 @@ function Navbar() {
                         </li>
                     </ul>
                     <div className="mt-2 ml-10">
-                        <button className="bg-green-600 font-sans font-normal text-white h-auto w-auto px-3 py-1.5 rounded-lg mr-4">Join</button>
-                        <button className="bg-green-600 font-sans font-normal text-white h-auto w-auto px-3 py-1.5 rounded-lg">Become a Seller</button>
+                        <button className="bg-green-500 hover:bg-green-600 font-sans font-normal text-white h-auto w-auto px-3 py-1.5 rounded-lg mr-4"><Link className='nav-link' to='/join'>Join</Link></button>
+                        <button className="bg-green-500 hover:bg-green-600 font-sans font-normal text-white h-auto w-auto px-3 py-1.5 rounded-lg">Become a Seller</button>
                     </div>
                 </div>
             </div>

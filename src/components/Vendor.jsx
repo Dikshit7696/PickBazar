@@ -2,11 +2,13 @@ import React from 'react'
 import { FaHome } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
 import { Link } from 'react-router-dom';
+import ScrollToTop from './ScrollToTop';
 import Footer from './Footer';
 
 function Vendor() {
     return (
         <div>
+            <ScrollToTop/>
             <div className='bg-gray-200 py-32'>
                 <h1 className='pt-20 text-3xl font-sans font-bold text-center'>Vendor Refund Policy</h1>
                 <div className='flex justify-self-center mt-4'>
@@ -18,7 +20,6 @@ function Vendor() {
                 <img src="https://pickbazar-react.vercel.app/_next/static/media/no-result.b574bcc9.svg" alt="" />
                 <h1 className='text-xl text-center font-sans font-semibold my-10 text-blue-800'>Sorry, No FAQs Found :(</h1>
             </div>
-            <div></div>
             <Footer/>
         </div>
     )

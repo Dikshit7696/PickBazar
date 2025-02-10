@@ -1,10 +1,12 @@
 import React from 'react'
 import { FaFacebookSquare, FaTwitter, FaInstagram } from "react-icons/fa";
 import Footer from './Footer';
+import ScrollToTop from './ScrollToTop';
 
 function Contact() {
     return (
         <div>
+            <ScrollToTop/>
             <div className='flex bg-gray-100 pt-36 pb-14 mb-24'>
                 <div className='bg-white ml-40 rounded-lg'>
                     <img src="https://pickbazar-react.vercel.app/_next/static/media/contact-illustration.2f6adc05.svg" className='px-10 pt-6' alt="" />

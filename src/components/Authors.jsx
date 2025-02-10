@@ -1,9 +1,12 @@
 import React from 'react'
 import { BiSearchAlt } from "react-icons/bi";
+import ScrollToTop from './ScrollToTop';
+import Footer from './Footer';
 
 function Authors() {
     return (
         <div>
+            <ScrollToTop />
             <div>
                 <div className='pt-40 justify-self-center'>
                     <h1 className='font-sans font-bold text-green-600 text-4xl'>Search Our beloved authors</h1>
@@ -36,6 +39,35 @@ function Authors() {
                     <h1 className='mt-8 ml-8'>Jenifer Wickham</h1>
                 </div>
             </div>
+            <div className='grid grid-cols-5 mt-20 gap-20 justify-self-center'>
+                <div className='h-[184px] w-[184px] bg-gray-100 rounded-full drop-shadow-lg'>
+                    <img src="https://pickbazar-react.vercel.app/_next/image?url=https%3A%2F%2Fpickbazarlaravel.s3.ap-southeast-1.amazonaws.com%2F1601%2FAuthor-img-800-%25288%2529.jpg&w=1920&q=75" className='rounded-full h-44 w-44 ml-1 mt-1' alt="" />
+                    <h1 className='mt-8 ml-8'>Sharone C Stone</h1>
+                </div>
+                <div className='h-[184px] w-[184px] bg-gray-100 rounded-full drop-shadow-lg'>
+                    <img src="https://pickbazar-react.vercel.app/_next/image?url=https%3A%2F%2Fpickbazarlaravel.s3.ap-southeast-1.amazonaws.com%2F1603%2FAuthor-img-800-%25284%2529.jpg&w=1920&q=75" className='rounded-full h-44 w-44 ml-1 mt-1' alt="" />
+                    <h1 className='mt-8 ml-8'>Kelton Benjamin</h1>
+                </div>
+                <div className='h-[184px] w-[184px] bg-gray-100 rounded-full drop-shadow-lg'>
+                    <img src="https://pickbazar-react.vercel.app/_next/image?url=https%3A%2F%2Fpickbazarlaravel.s3.ap-southeast-1.amazonaws.com%2F1605%2FAuthor-img-800-%25286%2529.jpg&w=1920&q=75" className='rounded-full h-44 w-44 ml-1 mt-1' alt="" />
+                    <h1 className='mt-8 ml-8'>Jimmy P Bulard</h1>
+                </div>
+                <div className='h-[184px] w-[184px] bg-gray-100 rounded-full drop-shadow-lg'>
+                    <img src="https://pickbazar-react.vercel.app/_next/image?url=https%3A%2F%2Fpickbazarlaravel.s3.ap-southeast-1.amazonaws.com%2F1607%2FAuthor-img-800-%25281%2529.jpg&w=1920&q=75" className='rounded-full h-44 w-44 ml-1 mt-1' alt="" />
+                    <h1 className='mt-8 ml-8'>Brandon T. Trigg</h1>
+                </div>
+                <div className='h-[184px] w-[184px] bg-gray-100 rounded-full drop-shadow-lg'>
+                    <img src="https://pickbazar-react.vercel.app/_next/image?url=https%3A%2F%2Fpickbazarlaravel.s3.ap-southeast-1.amazonaws.com%2F1609%2FAuthor-img-800-%252810%2529.jpg&w=1920&q=75" className='rounded-full h-44 w-44 ml-1 mt-1' alt="" />
+                    <h1 className='mt-8 ml-8'>Earnestine N. Pace</h1>
+                </div>
+            </div>
+            <div className='grid grid-cols-5 mt-20 gap-20 justify-self-center mb-48'>
+                <div className='h-[184px] w-[184px] bg-gray-100 rounded-full drop-shadow-lg'>
+                    <img src="https://pickbazar-react.vercel.app/_next/image?url=https%3A%2F%2Fpickbazarlaravel.s3.ap-southeast-1.amazonaws.com%2F1611%2FAuthor-img-800-%25285%2529.jpg&w=1920&q=75" className='rounded-full h-44 w-44 ml-1 mt-1' alt="" />
+                    <h1 className='mt-8 ml-8'>James N. Almeida</h1>
+                </div>
+            </div>
+            {/* <Footer/> */}
         </div>
     )
 }

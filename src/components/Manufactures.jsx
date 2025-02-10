@@ -2,10 +2,12 @@ import React from 'react'
 import { BiSearchAlt } from "react-icons/bi";
 import { FaFacebookSquare, FaYoutube, FaInstagram } from "react-icons/fa";
 import Footer from './Footer';
+import ScrollToTop from './ScrollToTop';
 
 function Manufactures() {
     return (
         <div>
+            <ScrollToTop/>
             <div>
                 <div className='pt-40 justify-self-center'>
                     <h1 className='font-sans font-bold text-green-600 text-4xl'>Manufacturers/Publishers</h1>

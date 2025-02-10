@@ -61,6 +61,8 @@ import FAQ from './components/FAQ';
 import Terms from './components/Terms';
 import Customer from './components/Customer';
 import Vendor from './components/Vendor';
+import Login from './components/Join';
+import Register from './components/Register';
 // import ScrollToTop from './components/ScrollToTop';
 
 function App() {
@@ -131,6 +133,8 @@ function App() {
           <Route path='/terms' element={<Terms />} />
           <Route path='/customer' element={<Customer />} />
           <Route path='/vendor' element={<Vendor />} />
+          <Route path='/join' element={<Login />} />
+          <Route path='/register' element={<Register />} />
         </Routes>
       </Router>
     </>

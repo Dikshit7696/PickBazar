@@ -3,12 +3,14 @@ import Footer from './Footer'
 import { FaHome } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
 import { Link } from 'react-router-dom';
+import ScrollToTop from './ScrollToTop';
 
 
 function Offers() {
 
     return (
         <div>
+            <ScrollToTop/>
             <div className='bg-gray-200 py-32'>
                 <h1 className='pt-20 text-3xl font-sans font-bold text-center'>Offers</h1>
                 <div className='flex justify-self-center mt-4'>

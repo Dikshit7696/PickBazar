@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema({
     // // Role:{
     // //     enum:["admin","customer","seller"],
     // //     default:"customer"
-    // },
+    // },,
     image:{type:String},
    
     otp:{type:Number},

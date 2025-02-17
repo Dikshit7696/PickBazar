@@ -13,10 +13,10 @@ const userSchema = new mongoose.Schema({
         type:String,
         require:true
     },
-    Role:{
-        enum:["admin","customer","seller"],
-        default:"customer"
-    },
+    // // Role:{
+    // //     enum:["admin","customer","seller"],
+    // //     default:"customer"
+    // },
     image:{type:String},
    
     otp:{type:Number},
